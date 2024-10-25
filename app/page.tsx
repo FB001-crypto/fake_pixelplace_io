@@ -231,7 +231,7 @@ export default function PixelArtApp() {
         `}</style>
         <header className="flex justify-between items-center p-4 bg-black bg-opacity-30 backdrop-filter backdrop-blur-md">
           <Button variant="ghost" size="icon" className="text-white hover:text-teal-300 transition-colors"><Menu /></Button>
-          <h1 className="text-2xl font-bold tracking-wide" style={{ fontFamily: '"ZCOOL QingKe HuangYou", sans-serif' }}>像素艺术创作</h1>
+          <h1 className="text-2xl font-bold tracking-wide" style={{ fontFamily: '"ZCOOL QingKe HuangYou", sans-serif' }}>PixelPlace单机版原型</h1>
           <Button variant="ghost" size="icon" className="text-white hover:text-teal-300 transition-colors"><Info /></Button>
         </header>
         
