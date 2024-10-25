@@ -45,7 +45,7 @@ export default function PixelArtApp() {
   const containerRef = useRef<HTMLDivElement>(null) // 画布容器引用
   const [canvasSize] = useState({ width: 800, height: 600 }) // 画布尺寸
   const [pixels, setPixels] = useState<Array<{x: number, y: number, color: string}>>([]) // 像素数组
-  const [remainingPixels, setRemainingPixels] = useState(MAX_PIXELS) // 剩余像素数量
+  // const [remainingPixels, setRemainingPixels] = useState(MAX_PIXELS) // 剩余像素数量
   const [nextPixelTime, setNextPixelTime] = useState<number>(5) // 5秒倒计时
   const [backgroundLoaded, setBackgroundLoaded] = useState(false) // 背景是否加载完成
   const [backgroundImage, setBackgroundImage] = useState<HTMLImageElement | null>(null) // 背景图片
