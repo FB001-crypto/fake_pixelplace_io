@@ -35,8 +35,8 @@ const COLORS = [
   { hex: '#B0C4DE', name: '亮钢蓝' },
   { hex: '#32CD32', name: '酸橙色' }
 ]
-const MAX_PIXELS = 15 // 最大像素数量
-const TIME_LIMIT = 60000 // 60秒，以毫秒为单位
+// const MAX_PIXELS = 15 // 最大像素数量
+// const TIME_LIMIT = 60000 // 60秒，以毫秒为单位
 
 export default function PixelArtApp() {
   const [color, setColor] = useState('#000000') // 当前选择的颜色
