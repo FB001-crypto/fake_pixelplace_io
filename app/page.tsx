@@ -235,52 +235,51 @@ export default function PixelArtApp() {
           <Button variant="ghost" size="icon" className="text-white hover:text-teal-300 transition-colors"><Info /></Button>
         </header>
         
-        <main className="flex-grow overflow-hidden relative flex">
+        <main className="flex-grow overflow-hidden relative flex flex-col md:flex-row">
           {/* 计时器区域 */}
-          <div className="absolute top-4 left-4 bg-black bg-opacity-50 backdrop-filter backdrop-blur-md rounded-lg p-3 text-sm" 
+          <div className="absolute top-4 left-4 bg-black bg-opacity-50 backdrop-filter backdrop-blur-md rounded-lg p-3 text-sm z-10" 
               style={{ fontFamily: '"ZCOOL QingKe HuangYou", sans-serif' }}>
             剩余像素: <span className="text-teal-300">{pixelCount}</span> | 
             下个像素: <span className="text-teal-300">{nextPixelTime === 0 ? '-' : `${nextPixelTime}s`}</span>
           </div>
 
-          {/* 地图和聊天框区域 */}
-          <div className="flex-grow flex">
-            {/* 地图区域 */}
-            <div className="flex-grow relative">
-              <div 
-                ref={containerRef}
-                className={`absolute inset-0 flex items-center justify-center ${isDrawMode ? 'cursor-crosshair' : 'cursor-move'}`}
-                onMouseDown={handleMouseDown}
-                onMouseMove={handleMouseMove}
-                onMouseUp={handleMouseUp}
-                onMouseLeave={handleMouseUp}
-                onClick={handleClick}
-              >
-                <canvas 
-                  ref={canvasRef}
-                  style={{ 
-                    transform: `translate(${offset.x}px, ${offset.y}px) scale(${zoom})`,
-                    transformOrigin: 'center center',
-                    imageRendering: 'pixelated',
-                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2)',
-                    borderRadius: '8px',
-                  }}
-                />
-              </div>
-              
-              <Button 
-                className="absolute bottom-4 right-4 bg-teal-700 hover:bg-teal-600 text-white transition-colors duration-300 shadow-lg"
-                onClick={toggleDrawMode}
-                style={{ fontFamily: '"ZCOOL QingKe HuangYou", sans-serif' }}
-              >
-                {isDrawMode ? '切换到拖拽模式' : '切换到绘画模式'}
-              </Button>
+          {/* 地图区域 */}
+          <div className="flex-grow relative h-[60vh] md:h-auto">
+            <div 
+              ref={containerRef}
+              className={`absolute inset-0 flex items-center justify-center ${isDrawMode ? 'cursor-crosshair' : 'cursor-move'}`}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+              onClick={handleClick}
+            >
+              <canvas 
+                ref={canvasRef}
+                style={{ 
+                  transform: `translate(${offset.x}px, ${offset.y}px) scale(${zoom})`,
+                  transformOrigin: 'center center',
+                  imageRendering: 'pixelated',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2)',
+                  borderRadius: '8px',
+                  maxWidth: '100%',
+                  maxHeight: '100%',
+                }}
+              />
             </div>
+            
+            <Button 
+              className="absolute bottom-4 right-4 bg-teal-700 hover:bg-teal-600 text-white transition-colors duration-300 shadow-lg"
+              onClick={toggleDrawMode}
+              style={{ fontFamily: '"ZCOOL QingKe HuangYou", sans-serif' }}
+            >
+              {isDrawMode ? '切换到拖拽模式' : '切换到绘画模式'}
+            </Button>
+          </div>
 
-            {/* 聊天框区域 */}
-            <div className="w-1/4 min-w-[300px] p-4 bg-black bg-opacity-30 backdrop-filter backdrop-blur-md">
-              <ChatBox />
-            </div>
+          {/* 聊天框区域 */}
+          <div className="w-full md:w-1/4 md:min-w-[300px] h-[40vh] md:h-auto bg-black bg-opacity-30 backdrop-filter backdrop-blur-md">
+            <ChatBox />
           </div>
         </main>
 
