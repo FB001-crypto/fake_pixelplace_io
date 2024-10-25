@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Slider } from "@/components/ui/slider"
 import { Menu, Info, Minus, Plus } from 'lucide-react'
 import { toast, Toaster } from 'react-hot-toast'
-import ChatBox from '@/components/chat/ChatBox'
+import ChatBox from '@/components/Chat/ChatBox'
 import { ChatProvider } from '@/context/ChatContext'
 
 // 定义颜色数组，每个颜色包含十六进制值和名称

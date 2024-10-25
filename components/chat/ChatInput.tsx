@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { useChatContext } from '../../context/ChatContext';
 
-const ChatInput: React.FC = () => {
+interface ChatInputProps {
+  onSendMessage: (content: string, recipient?: string) => void;
+}
+
+const ChatInput: React.FC<ChatInputProps> = ({ onSendMessage }) => {
   const [message, setMessage] = useState('');
   const [recipient, setRecipient] = useState('');
-  const { sendMessage, onlineUsers } = useChatContext();
+  const { onlineUsers } = useChatContext();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (message.trim()) {
-      sendMessage(message, recipient);
+      onSendMessage(message, recipient);
       setMessage('');
       setRecipient('');
     }

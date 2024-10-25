@@ -1,17 +1,18 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { Configuration } from 'webpack';
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
   reactStrictMode: true,
-  webpack: (config, { isServer }) => {
+  webpack: (config: Configuration, { isServer }) => {
     if (!isServer) {
+      config.resolve = config.resolve || {};
       config.resolve.fallback = {
         ...config.resolve.fallback,
-        net: false,
-        tls: false,
-        fs: false,
+        // ... 其他配置
       };
     }
     return config;
   },
-}
+};
 
-module.exports = nextConfig
+export default nextConfig;
