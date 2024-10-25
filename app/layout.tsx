@@ -12,7 +12,7 @@ const zcoolFont = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "像素假游戏",
+  title: "山寨PixelPlace",
   description: "一个有趣的像素艺术创作游戏",
 }
 
